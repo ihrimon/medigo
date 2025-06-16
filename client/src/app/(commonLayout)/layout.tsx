@@ -1,15 +1,13 @@
 'use client'
 
 import Footer from '@/components/shared/Footer';
-import Navbar from '@/components/shared/Navbar';
-import { usePathname } from 'next/navigation';
+// import Navbar from '@/components/shared/Navbar';
 
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {
-  const pathname = usePathname();
 
   return (
     <>
-      {pathname && pathname !== '/' && <Navbar />}
+    {/* <Navbar /> */}
       <main className='min-h-screen'>{children}</main>
       <Footer />
     </>

@@ -1,6 +1,6 @@
 .banner {
-  background: url("../../../../app/assets/banner-8.png");
-  height: 666px;
+  background: url("../../../../../public/assets/doctor-banner.png");
+  height: 760px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

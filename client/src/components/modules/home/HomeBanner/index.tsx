@@ -1,100 +1,75 @@
 'use client';
 
-import Image from 'next/image';
+import Logo from '@/components/shared/Logo';
 import styles from './HeroSection.module.css';
 import { navLinks } from '@/constants/navbar';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import banner from '../../../../app/assets/1.png';
-import { ArrowRight, ShoppingCart, WandSparkles } from 'lucide-react';
-import { useUser } from '@/context/UserContext';
-import { Profile } from '@/components/shared/Profile';
-import { useRouter } from 'next/navigation';
-import { useAppSelector } from '@/redux/hooks';
-import { orderedProductsSelector } from '@/redux/features/cartSlice';
-import Logo from '@/components/shared/Logo';
+import CustomBadge from '@/components/ui/core/CustomBadge';
+import { DoctorsBadge, Heart, RightArrow } from '@/constants/assets';
 
 const HomeBanner = () => {
-  const {user} = useUser();
-  const router = useRouter();
-
-  const cartProducts = useAppSelector(orderedProductsSelector);
-  const cartCount = cartProducts?.length || 0;
-
   return (
     <div className={`${styles.banner}`}>
-      <nav className='flex justify-between items-center py-5 max-w-7xl mx-auto'>
-        <Logo />
-        <div>
-          <ul className='flex items-center justify-evenly gap-5'>
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <Link href={link.path}>{link.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className='flex items-center gap-3 relative'>
-          <button onClick={() => router.push('/cart')} className='relative'>
-            <ShoppingCart size={24} />
-
-            {cartCount > 0 && (
-              <span className='absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full'>
-                {cartCount}
-              </span>
-            )}
-          </button>
-
-          {user !== null ? (
-            <Profile />
-          ) : (
+      {/* Home Navbar Content */}
+      <div className='max-w-7xl mx-auto text-[#3d3e5b]'>
+        <div className='flex items-center justify-between pt-6 font-medium'>
+          <div>
+            <Logo />
+          </div>
+          <div>
             <div>
-              <Link href={'/login'}>
-                <div className='relative inline-flex items-center justify-center rounded-full'>
-                  <Button
-                    className='
-              z-10 relative px-6 py-3 rounded-full font-medium
-              bg-gradient-to-r from-blue-500 via-lime-500 to-green-500
-              text-white shadow-lg
-              transition-all duration-500 ease-in-out
-              hover:brightness-110 hover:scale-105
-              '
-                  >
-                    <WandSparkles className='w-4 h-4 ' />
-                    Login
-                  </Button>
-                </div>
-              </Link>
+              <ul className='flex items-center justify-evenly gap-5'>
+                {navLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link href={link.path}>{link.name}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          )}
-        </div>
-      </nav>
-      <div className='max-w-7xl mx-auto flex items-center justify-between gap-6 my-10'>
-        <div>
-          <div className='bg-lime-100 rounded-full px-5 py-1 inline-block text-sm text-lime-500'>
-            <p>Medical Center</p>
           </div>
-          <h1 className='text-5xl font-extrabold leading-tight my-5 text-gray-600'>
-            One Click Away <br />
-            From Better Health <br />
-            <span className='text-blue-500'>MediGo</span> Shop Online
+          <div className='flex items-center gap-5 font-medium'>
+            <button>Login</button>
+            <button className='bg-[#01b0c3] px-5 py-2 rounded-md cursor-pointer text-white font-medium'>
+              Sign Up
+            </button>
+          </div>
+        </div>
+        {/* Banner Content */}
+        <div className='mt-18'>
+          <CustomBadge
+            icon={<Heart />}
+            text='Smart Healthcare'
+            className='border border-[#3ac3d2] bg-[#d8f9fd] text-[#3ac3d2]'
+          />
+          <h1 className='text-[56px] font-extrabold leading-14'>
+            Smart <span className='text-[#01b0c3]'>MediGo Care</span> <br />{' '}
+            Order Medicines And <br />
+            <span className='text-[#266388]'>Consult Doctors</span> Easily
           </h1>
-          <p className='w-2/3 leading-relaxed'>
-            To become the most trusted and accessible digital pharmacy platform,
-            ensuring every individual can conveniently access quality medicines
-            and healthcare products—anytime, anywhere.
+          <p className='lg:w-[470px] my-5 mb-8 leading-7'>
+            Get your medicines delivered to your doorstep and book certified
+            doctors anytime, anywhere. MediGo makes healthcare simple, fast, and
+            reliable—just the way you need it.
           </p>
-          <div className='mt-10'>
-            <Link href={'/products'}>
-              <Button className='px-6 bg-green-500 hover:bg-blue-500'>
-                Shopping Now <ArrowRight />
-              </Button>
-            </Link>
-            <div />
+          {/* Book an appointment button */}
+          <div>
+            <button className='bg-[#266388] px-5 py-3 text-white rounded-md flex items-center gap-3 cursor-pointer'>
+              Book an Appointment <RightArrow />
+            </button>
           </div>
-        </div>
-        <div className='mr-12'>
-          <Image src={banner} height={800} width={800} alt='banner image' />
+          <div className='mt-10 flex items-center gap-10'>
+            <DoctorsBadge />
+            <div className='flex items-center gap-10'>
+              <p>
+                <span className='text-[#266388] text-3xl font-bold'>50+<br/></span>
+                Expert Doctors
+              </p>
+              <p>
+                <span className='text-[#266388] text-3xl font-bold'>20+ <br/></span>
+                Job Vacancy
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
