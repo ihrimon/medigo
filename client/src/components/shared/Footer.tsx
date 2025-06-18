@@ -131,7 +131,7 @@ const Footer = () => {
           <div className='flex flex-col md:flex-row justify-between items-center'>
             <p className='text-sm'>
               Copyright © 2025{' '}
-              <span className='text-green-500 hover:underline'>
+              <span className='text-primary hover:underline'>
                 MediGo Shop
               </span>
               . All Rights Reserved

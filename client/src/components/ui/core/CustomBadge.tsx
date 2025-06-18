@@ -1,15 +1,13 @@
-import React, { ReactNode } from 'react'
+import { BadgeImage } from '@/constants/assets';
 
-const CustomBadge = ({icon, text, className}: {icon:ReactNode, text:string, className: string}) => {
+const CustomBadge = ({text}: {text:string}) => {
   return (
-    <div className='inline-block'>
-      <div
-        className={`flex gap-2 rounded-full items-center px-3 py-1 mb-5 ${className}`}
-      >
-        <span>{icon}</span>
-        <h4>{text}</h4>
+      <div className='flex items-center gap-2 mb-3'>
+        <span>
+          <BadgeImage />
+        </span>
+        <h4 className='text-primary text-lg font-semibold'>{text}</h4>
       </div>
-    </div>
   );
 }
 

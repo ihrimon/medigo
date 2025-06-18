@@ -47,16 +47,16 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: #f7feff;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --primary: #01b0c3;
+  --primary-foreground: white;
+  --secondary: #246287;
+  --secondary-foreground: white;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -81,6 +81,10 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --font-manrope: 'Manrope', sans-serif;
+  --tw-color-primary: 1 176 195; 
+  --tw-color-secondary: 36 98 135; 
+  --text-heading: #3d3e5b;
+  --text-color: #3d3e5b88;
 }
 
 .dark {
@@ -133,6 +137,13 @@
   }
   .clip-path-banner-right {
     clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  }
+  .text-heading {
+    color: var(--text-heading);
+  }
+
+  .text-color {
+    color: var(--text-color);
   }
 }
 

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import CustomBadge from '@/components/ui/core/CustomBadge';
 
 const steps = [
   {
@@ -47,9 +48,9 @@ const WorkProcess = () => {
   return (
     <section className='py-16 bg-no-repeat bg-cover'>
       <div className='text-center mb-12'>
-        <p className='text-sm font-medium text-[#00BFA6] tracking-widest'>
-          WORK PROCESS
-        </p>
+        <div className='flex justify-center'>
+          <CustomBadge text='Working Process'/>
+        </div>
         <h2 className='text-3xl md:text-4xl font-bold mt-2'>
           Let’s See How We Work Process
         </h2>

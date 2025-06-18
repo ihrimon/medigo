@@ -15,6 +15,10 @@ module.exports = {
           to: { transform: 'translateY(calc(-100% - var(--gap)))' },
         },
       },
+      colors: {
+        primary: 'rgb(var(--tw-color-primary) / <alpha-value>)',
+        secondary: 'rgb(var(--tw-color-secondary) / <alpha-value>)',
+      },
     },
   },
 };

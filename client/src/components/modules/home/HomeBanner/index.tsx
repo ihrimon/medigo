@@ -5,14 +5,14 @@ import styles from './HeroSection.module.css';
 import { navLinks } from '@/constants/navbar';
 import Link from 'next/link';
 import CustomBadge from '@/components/ui/core/CustomBadge';
-import { DoctorsBadge, Heart, RightArrow } from '@/constants/assets';
+import { DoctorsBadge, RightArrow } from '@/constants/assets';
 
 const HomeBanner = () => {
   return (
     <div className={`${styles.banner}`}>
       {/* Home Navbar Content */}
-      <div className='max-w-7xl mx-auto text-[#3d3e5b]'>
-        <div className='flex items-center justify-between pt-6 font-medium'>
+      <div className='max-w-7xl mx-auto'>
+        <div className='flex items-center justify-between pt-6 font-medium text-heading'>
           <div>
             <Logo />
           </div>
@@ -28,20 +28,18 @@ const HomeBanner = () => {
             </div>
           </div>
           <div className='flex items-center gap-5 font-medium'>
-            <button>Login</button>
-            <button className='bg-[#01b0c3] px-5 py-2 rounded-md cursor-pointer text-white font-medium'>
+            <button className='cursor-pointer'>Login</button>
+            <button className='bg-primary px-5 py-2 rounded-md cursor-pointer text-white'>
               Sign Up
             </button>
           </div>
         </div>
         {/* Banner Content */}
-        <div className='mt-18'>
+        <div className='mt-18 text-color'>
           <CustomBadge
-            icon={<Heart />}
             text='Smart Healthcare'
-            className='border border-[#3ac3d2] bg-[#d8f9fd] text-[#3ac3d2]'
           />
-          <h1 className='text-[56px] font-extrabold leading-14'>
+          <h1 className='text-[56px] font-extrabold leading-14 text-heading'>
             Smart <span className='text-[#01b0c3]'>MediGo Care</span> <br />{' '}
             Order Medicines And <br />
             <span className='text-[#266388]'>Consult Doctors</span> Easily

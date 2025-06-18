@@ -1,11 +1,10 @@
-import { getAllBrands } from '@/services/brand';
-import { IBrand } from '@/types';
 import { MoveLeft, MoveRight } from 'lucide-react';
 import Image from 'next/image';
+import brandsData from '../../../../../brands.json'
 
 const PopularBrands = async () => {
-  const { data: brandsData } = await getAllBrands();
-  const brands = brandsData?.data;
+  // const { data: brandsData } = await getAllBrands();
+  // const brands = brandsData?.data;
 
   return (
     <div className='max-w-7xl mx-auto mt-20'>
@@ -22,7 +21,7 @@ const PopularBrands = async () => {
         </div>
       </div>
       <div className='grid grid-cols-5 gap-8 my-10'>
-        {brands?.map((brand: IBrand) => (
+        {brandsData?.map((brand) => (
           <div key={brand.slug} className='relative group'>
             {/* Brand Image */}
             <Image

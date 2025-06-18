@@ -10,9 +10,9 @@ const TrendingItems = async () => {
   return (
     <section className='py-16 px-4 max-w-7xl mx-auto'>
       <div className='flex items-center justify-between mb-8'>
-        <h2 className='text-2xl font-bold text-green-500'>
+        <h2 className='text-2xl font-bold text-primary'>
           Trending Items
-          <div className='h-[2px] w-20 bg-green-500 mt-2' />
+          <div className='h-[2px] w-30 bg-secondary mt-2' />
         </h2>
         <a
           href='#'
