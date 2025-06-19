@@ -5,6 +5,8 @@ import { Bookmark, ChevronsRight, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
+import 'keen-slider/keen-slider.min.css';
+import { useKeenSlider } from 'keen-slider/react';
 
 interface Product {
   name: string;
@@ -169,8 +171,8 @@ const PopularItems = () => {
       {[1, 2, 3, 4, 5].map((star) => (
         <span
           key={star}
-          className={`text-sm ${
-            star <= rating ? 'text-yellow-400' : 'text-gray-300'
+          className={`text-xl ${
+            star <= rating ? 'text-yellow-500' : 'text-gray-300'
           }`}
         >
           ★
@@ -178,6 +180,23 @@ const PopularItems = () => {
       ))}
     </div>
   );
+
+  const [sliderRef] = useKeenSlider<HTMLDivElement>({
+    loop: true,
+    mode: 'snap',
+    slides: {
+      perView: 1,
+      spacing: 15,
+    },
+    breakpoints: {
+      '(min-width: 768px)': {
+        slides: { perView: 2, spacing: 20 },
+      },
+      '(min-width: 1024px)': {
+        slides: { perView: 4, spacing: 25 },
+      },
+    },
+  });
 
   return (
     <div className='max-w-7xl mx-auto'>
@@ -190,7 +209,7 @@ const PopularItems = () => {
             </div>
             <Button
               variant='link'
-              className='text-primary font-bold hover:text-secondary'
+              className='text-primary font-bold hover:text-secondary cursor-pointer'
             >
               All Products <ChevronsRight />
             </Button>
@@ -202,7 +221,7 @@ const PopularItems = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200 cursor-pointer ${
                   activeCategory === category
                     ? 'bg-primary text-white'
                     : 'bg-primary/10'
@@ -214,29 +233,29 @@ const PopularItems = () => {
           </div>
 
           {/* Product Grid */}
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
-            {productstData.slice(0, 4).map((product: Product) => {
+          <div ref={sliderRef} className='keen-slider'>
+            {productstData.map((product: Product) => {
               const isHovered = hoveredSlug === product.slug;
 
               return (
                 <div
                   key={product.slug}
-                  className='group relative overflow-hidden rounded-xl p-3'
+                  className='keen-slider__slide group relative overflow-hidden rounded-xl p-3 cursor-pointer bg-white'
                   onMouseEnter={() => setHoveredSlug(product.slug)}
                   onMouseLeave={() => setHoveredSlug(null)}
                 >
-                  {/* Overlay */}
+                  {/* Hover Overlay */}
                   <div
                     className='absolute inset-0 z-0 transition-all duration-500 ease-in-out'
                     style={{
-                      backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                      backgroundColor: isHovered ? '#01b0c3' : '#d6eef5',
                       clipPath: isHovered
                         ? 'polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%)'
                         : 'polygon(0% 100%, 0% 40%, 100% 60%, 100% 100%)',
                       borderTopLeftRadius: isHovered ? '0rem' : '0.75rem',
                       borderTopRightRadius: isHovered ? '0rem' : '0.75rem',
                       transition:
-                        'clip-path 0.5s ease-in-out, border-radius 0.5s ease-in-out',
+                        'clip-path 0.5s ease-in-out, background-color 0.5s ease-in-out, border-radius 0.5s ease-in-out',
                     }}
                   ></div>
 
@@ -255,15 +274,16 @@ const PopularItems = () => {
                           OUT OF STOCK
                         </Badge>
                       )}
-                      <button className='absolute top-3 right-3 px-3 h-6 bg-primary rounded-full flex items-center justify-center text-white hover:bg-secondary transition-colors duration-200 text-sm'>
+                      <button className='absolute top-2 right-2 px-2 h-6 bg-secondary rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors duration-200 text-sm border'>
                         40%
                       </button>
                     </div>
-                    <div className='mt-4 space-y-0.5'>
-                      <h3 className='font-semibold'>{product.name}</h3>
+
+                    <div className='mt-4 space-y-0.5 hover:text-white'>
+                      <h3 className='font-bold'>{product.name}</h3>
                       {renderStars(product.averageReview)}
                       <div className='flex items-center gap-4'>
-                        <span className='text-lg font-bold text-coral-500'>
+                        <span className='font-bold'>
                           ${product.price.toFixed(2)}
                         </span>
                         <span className='text-sm line-through font-bold text-color'>
@@ -271,13 +291,12 @@ const PopularItems = () => {
                         </span>
                       </div>
                     </div>
-                    <div className='bg-white rounded-md flex items-center mt-3'>
-                      <button className='flex items-center gap-2 font-bold px-3 py-2 text-sm hover:bg-primary hover:text-white transition-all duration-200 cursor-pointer'>
+
+                    <div className='bg-white flex items-center mt-3 rounded-md'>
+                      <button className='flex items-center gap-2 font-bold px-3 py-2 text-sm hover:text-primary transition-all duration-200 cursor-pointer'>
                         <PlusCircle size={16} /> Add To Cart
                       </button>
-
                       <div className='border border-gray-100 h-8'></div>
-
                       <div className='flex justify-center mx-auto hover:bg-gray-50 cursor-pointer'>
                         <button
                           className='flex items-center justify-center hover:bg-gray-100 rounded-md transition-colors duration-200'
@@ -296,7 +315,7 @@ const PopularItems = () => {
             })}
           </div>
         </div>
-        <div className='col-span-3'>
+        <div className='col-span-3 mt-8'>
           <Image
             src={'/assets/delivery-man.png'}
             alt='delivery man'

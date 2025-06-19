@@ -56,7 +56,7 @@ export const PricingPlan = () => {
   ];
 
   return (
-    <section className='py-16 px-4 max-w-7xl mx-auto'>
+    <section className='py-16 max-w-7xl mx-auto'>
       {/* Header */}
       <div className='mb-12'>
             <CustomBadge text='Our Pricing Plan'/>

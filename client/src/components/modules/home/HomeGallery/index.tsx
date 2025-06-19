@@ -9,17 +9,17 @@ import GalleryModal from './GalleryModal';
 
 const images = [
   {
-    src: 'https://plus.unsplash.com/premium_photo-1668898899024-02f028349666?q=80&w=2070&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1453847668862-487637052f8a?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     colSpan: 2,
     rowSpan: 1,
   },
   {
-    src: 'https://plus.unsplash.com/premium_photo-1668605108427-695ef1c16256?w=500&auto=format&fit=crop&q=60',
+    src: 'https://plus.unsplash.com/premium_photo-1668714068992-2a146166b860?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fG1lZGljaW5lfGVufDB8fDB8fHww',
     colSpan: 1,
     rowSpan: 1,
   },
   {
-    src: 'https://plus.unsplash.com/premium_photo-1670981099426-2eaeaab354b7?q=80&w=1920&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     colSpan: 1,
     rowSpan: 2,
   },
@@ -29,8 +29,13 @@ const images = [
     rowSpan: 1,
   },
   {
-    src: 'https://plus.unsplash.com/premium_photo-1670981099297-319458480c3c?q=80&w=2024&auto=format&fit=crop',
+    src: 'https://images.unsplash.com/photo-1579165466814-e646cfa4a3be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     colSpan: 2,
+    rowSpan: 1,
+  },
+  {
+    src: 'https://plus.unsplash.com/premium_photo-1661627133045-6fcffcefaa8c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    colSpan: 1,
     rowSpan: 1,
   },
 ];
@@ -39,7 +44,7 @@ const HomeGallery = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   return (
-    <section className='max-w-7xl mx-auto px-4 py-12'>
+    <section className='max-w-7xl mx-auto py-12'>
       <div className='flex justify-center mb-4'>
         <CustomBadge text='Gallery' />
       </div>

@@ -7,22 +7,21 @@ import LatestBlog from '@/components/modules/home/LatestBlog';
 import PopularBrands from '@/components/modules/home/PopularBrands';
 import PopularCategories from '@/components/modules/home/PopularCategories';
 import { PricingPlan } from '@/components/modules/home/PricingPlan';
-// import ServiceMarquee from '@/components/modules/home/ServiceMarquee';
+import ServiceMarquee from '@/components/modules/home/ServiceMarquee';
 import { Testimonials } from '@/components/modules/home/Testimonials';
 import { TopServiceCategory } from '@/components/modules/home/TopServiceCategory';
-// import TopCategories from '@/components/modules/home/TopCategories';
-import TrendingItems from '@/components/modules/home/TrendingItems';
+import WeekDeals from '@/components/modules/home/WeekDeals';
 import WorkProcess from '@/components/modules/home/WorkProcess';
 
 export default function Home() {
   return (
     <div>
       <HomeBanner />
-      {/* <ServiceMarquee /> */}
+      <ServiceMarquee/>
       <EmergencyServices />
       <TopServiceCategory />
       {/* <TopCategories /> */}
-      <TrendingItems />
+      <WeekDeals />
       <PopularCategories />
       <PopularBrands />
       <WorkProcess />
