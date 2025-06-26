@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { EllipsisVertical, Plus } from 'lucide-react';
@@ -168,8 +168,8 @@ const BrandListing = () => {
                   <TableCell className='py-4'>
                     <div className='flex items-center justify-center h-10 w-10 rounded-full overflow-hidden bg-blue-100'>
                       <Image
-                      width={100}
-                      height={100}
+                        width={100}
+                        height={100}
                         src={brand.logo}
                         alt={brand.name}
                         className='h-10 w-10 object-cover'

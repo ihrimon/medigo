@@ -40,7 +40,7 @@ const images = [
   },
 ];
 
-const HomeGallery = () => {
+const MedigoGallery = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   return (
@@ -83,4 +83,4 @@ const HomeGallery = () => {
   );
 };
 
-export default HomeGallery;
+export default MedigoGallery;

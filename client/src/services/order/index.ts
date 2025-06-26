@@ -27,19 +27,30 @@ export const createOrder = async (orderData: any): Promise<any> => {
 };
 
 // get all orders (admin)
+// services/order.ts
+
 export const getAllOrders = async (): Promise<any> => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/orders`, {
       headers: {
-        Authorization: (await cookies()).get('accessToken')!.value,
+        Authorization: (await cookies()).get('accessToken')?.value || '',
       },
+      cache: 'no-store',
       next: {
         tags: ['ORDER'],
       },
     });
-    return res.json();
-  } catch (error: any) {
-    return Error(error);
+
+    if (!res.ok) {
+      const text = await res.text(); // avoid res.json() if not ok
+      console.error('getAllOrders failed:', text);
+      return { data: { data: [] } }; // fallback empty data
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error('getAllOrders error:', error);
+    return { data: { data: [] } }; // fallback on error
   }
 };
 
@@ -57,7 +68,8 @@ export const getSingleOrder = async (orderId: string): Promise<any> => {
         },
       }
     );
-    return res.json();
+    const data = res.json();
+    console.log(data, 'from order services')
   } catch (error: any) {
     return Error(error);
   }

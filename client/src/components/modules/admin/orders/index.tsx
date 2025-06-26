@@ -6,61 +6,13 @@ import {
   TableHeader,
   TableHead,
   TableRow,
+  TableBody,
+  TableCell,
 } from '@/components/ui/table';
 import { CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { IOrder } from '@/types';
-// import Image from 'next/image';
-// import AddProductModal from './AddProductModal';
-// import { IBrand, ICategory, IOrder, IProduct } from '@/types';
-// import { Edit, Eye, Trash } from 'lucide-react';
-// import QuickView from '@/components/modules/home/PopularCategories/QuickView';
-// import EditProductModal from '@/components/ui/core/CustomModal/EditProductModal';
-// import { deleteProduct } from '@/services/product';
-// import DeleteConfirmationModal from '@/components/ui/core/CustomModal/DeleteConfirmationModal';
-// import { toast } from 'sonner';
-// import { deleteOrder } from '@/services/order';
-// import { CartProduct } from '@/redux/features/cartSlice';
 
-const OrderList = ({orders}: {orders: IOrder}) => {
-  // const [quickViewOpen, setQuickViewOpen] = useState(false);
-  // const [editModalOpen, setEditModalOpen] = useState(false);
-  // const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  // const [selectedOrder, setSelectedOrder] = useState<IProduct | null>(null);
-
-  console.log('orders', orders)
-
-  // const handleQuickView = (product: IProduct) => {
-  //   setSelectedOrder(product);
-  //   setQuickViewOpen(true);
-  // };
-
-  // const handleEditProduct = (product: IProduct) => {
-  //   setSelectedOrder(product);
-  //   setEditModalOpen(true);
-  // };
-
-  // const handleOpenDeleteModal = (product: IProduct) => {
-  //   setSelectedOrder(product);
-  //   setDeleteModalOpen(true);
-  // };
-
-  // const handleDeleteProduct = async () => {
-  //   if (!selectedOrder) return;
-
-  //   try {
-  //     const res = await deleteOrder(selectedOrder._id);
-  //     if (res.success) {
-  //       toast.success('Product deleted successfully');
-  //       // You can trigger a refetch here if needed
-  //     } else {
-  //       toast.error(res.message || 'Failed to delete product');
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     toast.error('Something went wrong');
-  //   }
-  // };
-
+const OrderList = ({ orders }: { orders: IOrder[] }) => {
   return (
     <div className='border border-gray-100'>
       <CardHeader className='flex flex-row items-center justify-between pb-2 pt-6 px-6 mb-6'>
@@ -78,29 +30,42 @@ const OrderList = ({orders}: {orders: IOrder}) => {
                 <TableHead>Product</TableHead>
                 <TableHead>Quantity</TableHead>
                 <TableHead>Delivery Charge</TableHead>
-                <TableHead>Amout</TableHead>
+                <TableHead>Amount</TableHead>
                 <TableHead>Method</TableHead>
                 <TableHead>Time</TableHead>
                 <TableHead>Status</TableHead>
               </TableRow>
             </TableHeader>
-            {/* <TableBody>
-              {orders.map((order: IOrder) => (
+            <TableBody>
+              {orders.map((order) => (
                 <TableRow key={order._id} className='hover:bg-gray-50'>
-                  <TableCell>#{order._id.slice(-5)}</TableCell>
+                  <TableCell>#{order._id?.slice(-5)}</TableCell>
                   <TableCell>
-                    <div>{order?.user?.name} || {order?.user?.email} || {order?.user?.photo}</div>
+                    <div>
+                      {order.user?.name} <br />
+                      {order.user?.email}
+                    </div>
                   </TableCell>
-                  <TableCell>{order.products._id}</TableCell>
+                  <TableCell>
+                    {order.products.map((item) => (
+                      <div key={item._id}>{item.product?.name}</div>
+                    ))}
+                  </TableCell>
+                  <TableCell>
+                    {order.products.map((item) => (
+                      <div key={item._id}>{item.quantity}</div>
+                    ))}
+                  </TableCell>
                   <TableCell>{order.deliveryCharge}</TableCell>
                   <TableCell>{order.finalAmount}</TableCell>
-                  <TableCell>{order.finalAmount}</TableCell>
                   <TableCell>{order.paymentMethod}</TableCell>
-                  <TableCell>{order.createdAt}</TableCell>
+                  <TableCell>
+                    {new Date(order.createdAt).toLocaleString()}
+                  </TableCell>
                   <TableCell>{order.status}</TableCell>
                 </TableRow>
               ))}
-            </TableBody> */}
+            </TableBody>
           </Table>
         </div>
       </CardContent>

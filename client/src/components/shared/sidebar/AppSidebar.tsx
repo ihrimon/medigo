@@ -9,7 +9,6 @@ import {
   SidebarHeader,
 } from '@/components/ui/sidebar';
 import Image from 'next/image';
-import logo from '../../../app/assets/logo.png';
 import Link from 'next/link';
 import { DashboardItems } from './DashboardItems';
 import { DashboardUser } from './DashboardUser';
@@ -61,13 +60,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <div className='my-6 flex flex-col items-center'>
           <Link href='/'>
             <Image
-              width={60}
-              height={60}
+              width={80}
+              height={80}
               alt='logo'
-              src={logo}
+              src={'/assets/logo.png'}
               className='rounded-md'
             />
-            <h3 className='text-lg font-semibold mt-2 text-center'>MediGo</h3>
           </Link>
         </div>
       </SidebarHeader>
@@ -84,7 +82,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             user={{
               name: user.name,
               email: user.email,
-              avatar:                'https://res.cloudinary.com/do6tvtff8/image/upload/v1742644477/images.jpg.jpg',
+              avatar: 'https://res.cloudinary.com/do6tvtff8/image/upload/v1742644477/images.jpg.jpg',
             }}
           />
         )}

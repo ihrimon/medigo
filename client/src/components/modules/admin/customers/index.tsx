@@ -49,6 +49,11 @@ const CustomerList = ({customers}: {customers: ICustomer[]}) => {
 //     }
 //   };
 
+if (!customers || customers.length === 0) {
+  return <div>No customer data available.</div>;
+}
+
+
   return (
     <div className='border border-gray-100'>
       <CardHeader className='flex flex-row items-center justify-between pb-2 pt-6 px-6 mb-6'>
@@ -62,35 +67,12 @@ const CustomerList = ({customers}: {customers: ICustomer[]}) => {
             <TableHeader className='bg-green-50 py-6'>
               <TableRow>
                 <TableHead>ID</TableHead>
-                <TableHead>Product</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Brand</TableHead>
-                <TableHead>Price</TableHead>
-                <TableHead>Stock</TableHead>
-                <TableHead>Prescription</TableHead>
-                <TableHead>Expiry Date</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {customers.map((customer: ICustomer) => (
-                <TableRow key={customer._id} className='hover:bg-gray-50'>
+                <TableRow key={customer._id}>
                   <TableCell>#{customer._id.slice(-5)}</TableCell>
-                  {/* <TableCell className='py-4'>
-                    <div className='flex items-center gap-3'>
-                      <div className='flex items-center justify-center h-12 w-12 p-2 rounded-full bg-green-50'>
-                        <Image
-                          width={100}
-                          height={100}
-                          src={customer.profileImage}
-                          alt={customer.user.name}
-                          className='h-10 w-10 object-cover'
-                        />
-                      </div>
-                      
-                    </div>
-                  </TableCell> */}
                 </TableRow>
               ))}
             </TableBody>

@@ -151,3 +151,12 @@
 body {
   font-family: var(--font-manrope);
 }
+
+.icon-spin {
+  transition: transform 0.7s ease-in-out;
+}
+
+.icon-spin:hover {
+  transform: rotateY(360deg);
+  transform-origin: center;
+}

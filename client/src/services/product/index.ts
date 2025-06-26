@@ -55,6 +55,7 @@ export const getAllProducts = async (
       },
     });
     const data = await res.json();
+    // console.log(data, 'from server')
     return data;
   } catch (error: any) {
     return Error(error.message);

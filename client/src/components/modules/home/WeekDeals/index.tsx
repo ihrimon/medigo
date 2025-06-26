@@ -2,7 +2,14 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
+import {
+  ArrowRight,
+  ChevronsLeft,
+  ChevronsRight,
+  Eye,
+  ShoppingCart,
+  Bookmark,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import CustomBadge from '@/components/ui/core/CustomBadge';
@@ -86,6 +93,18 @@ const WeekDeals = () => {
     </div>
   );
 
+  const handleView = (productId: string) => {
+    console.log('View clicked for:', productId);
+  };
+
+  const handleAddToCart = (productId: string) => {
+    console.log('Add to Cart:', productId);
+  };
+
+  const handleBookmark = (productId: string) => {
+    console.log('Bookmark clicked:', productId);
+  };
+
   return (
     <div className='max-w-7xl mx-auto my-20 text-heading relative group'>
       <div className='flex items-center justify-between mb-10'>
@@ -118,15 +137,42 @@ const WeekDeals = () => {
         {deals.map((deal) => (
           <div key={deal.id} className='keen-slider__slide'>
             <div className='overflow-hidden relative'>
-              <div className='flex justify-center p-6 bg-primary/10 rounded-2xl'>
+              {/* Image Section */}
+              <div className='flex justify-center p-6 bg-primary/10 rounded-2xl relative group/item'>
                 <Image
                   src={deal.image}
                   alt={deal.name}
                   width={500}
                   height={500}
+                  className='transition-all duration-500 group-hover/item:scale-105'
                 />
+
+                {/* Hover Action Icons */}
+                <div className='absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover/item:opacity-100 transition-all duration-300 z-10'>
+                  <div className='flex items-center gap-2'>
+                    <button
+                      onClick={() => handleView(deal.id)}
+                      className='p-2 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition'
+                    >
+                      <Eye size={16} />
+                    </button>
+                    <button
+                      onClick={() => handleAddToCart(deal.id)}
+                      className='p-2 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition'
+                    >
+                      <ShoppingCart size={16} />
+                    </button>
+                    <button
+                      onClick={() => handleBookmark(deal.id)}
+                      className='p-2 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition'
+                    >
+                      <Bookmark size={16} />
+                    </button>
+                  </div>
+                </div>
               </div>
 
+              {/* Product Info */}
               <div className='px-6 pt-4 text-center'>
                 <div className='absolute top-6 right-6 bg-primary text-white rounded-full px-1 py-4 text-center min-w-[50px] shadow-md'>
                   <div className='text-xl font-bold'>
@@ -149,11 +195,7 @@ const WeekDeals = () => {
 
                 <p className='text-gray-400'>{deal.brand}</p>
                 {renderStars(deal.rating)}
-
-                <h3 className='font-bold text-lg'>
-                  {deal.name}
-                </h3>
-
+                <h3 className='font-bold text-lg'>{deal.name}</h3>
                 <div className='flex items-center justify-center gap-3'>
                   <span className='text-lg font-bold text-primary'>
                     ${deal.price.toFixed(2)}

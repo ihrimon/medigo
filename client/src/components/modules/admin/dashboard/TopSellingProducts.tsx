@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { Download, Upload } from 'lucide-react';
@@ -153,8 +153,8 @@ const TopSellingProducts = () => {
                 <TableCell className='p-4 align-middle'>
                   <div className='flex items-center justify-center h-12 w-12 bg-gray-100 rounded-md overflow-hidden'>
                     <Image
-                    width={100}
-                    height={100}
+                      width={100}
+                      height={100}
                       src={product.image}
                       alt={product.name}
                       className='h-8 w-8 object-contain'

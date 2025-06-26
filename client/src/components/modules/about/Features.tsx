@@ -37,7 +37,7 @@ export function Features() {
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           <div className='relative'>
             <div className='absolute -top-6 -left-6 bg-white rounded-lg shadow-lg py-3 px-6 flex items-center gap-3'>
-              <span className='text-4xl font-bold text-cyan-500'>20+</span>
+              <span className='text-4xl font-bold text-primary'>20+</span>
               <span className='text-gray-600 font-medium'>
                 Years
                 <br />
@@ -45,8 +45,8 @@ export function Features() {
               </span>
             </div>
             <Image
-            width={500}
-            height={500}
+              width={500}
+              height={500}
               src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop'
               alt='Dr. Natali Jackson'
               className='rounded-2xl shadow-xl w-full h-[600px] object-cover'
@@ -64,15 +64,15 @@ export function Features() {
             </p>
 
             <div>
-              <h3 className='text-2xl font-semibold text-cyan-500 mb-6'>
+              <h3 className='text-2xl font-semibold text-primary mb-6'>
                 About Skills
               </h3>
 
               <div className='grid sm:grid-cols-2 gap-4'>
                 {skills.map((skill, index) => (
                   <div key={index} className='flex items-center gap-3'>
-                    <div className='w-6 h-6 rounded-full bg-cyan-100 flex items-center justify-center'>
-                      <Check className='w-4 h-4 text-cyan-500' />
+                    <div className='w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center'>
+                      <Check className='w-4 h-4 text-primary' />
                     </div>
                     <span className='text-gray-700'>{skill}</span>
                   </div>
@@ -88,17 +88,17 @@ export function Features() {
                       className={`w-12 h-12 flex items-center justify-center ${
                         award.type === 'hexagon'
                           ? 'bg-navy-50 text-navy-600'
-                          : 'bg-cyan-50 text-cyan-600'
+                          : 'bg-primary/20 text-primary'
                       } rounded-lg font-bold`}
                     >
                       {award.icon}
                     </div>
                     <div>
-                      <h4 className='font-semibold text-gray-900'>
+                      <h4 className='font-semibold text-heading'>
                         {award.title}
                       </h4>
-                      <p className='text-sm text-gray-600'>{award.subtitle}</p>
-                      <p className='text-sm text-cyan-500 mt-1'>
+                      <p className='text-sm text-heading'>{award.subtitle}</p>
+                      <p className='text-sm text-primary mt-1'>
                         {award.label}
                       </p>
                     </div>

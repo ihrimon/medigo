@@ -3,10 +3,7 @@ import { Mail, MapPin, Phone, Clock, ArrowUpRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
-
-
 const ContactUs = () => {
-
   return (
     <div className='container mx-auto px-4 py-12 max-w-6xl'>
       <div className='text-center mb-8'>
@@ -23,14 +20,13 @@ const ContactUs = () => {
       </div>
 
       <div className='flex flex-col md:flex-row gap-8 mb-12'>
-
         <div className='md:w-1/2 space-y-6'>
           <div className='bg-[#f8f9fc] p-6 rounded-xl'>
             <div className='flex items-center mb-4'>
               <div className='flex -space-x-3 mr-4'>
                 <Image
-                width={100}
-                height={100}
+                  width={100}
+                  height={100}
                   src='/lovable-uploads/9bf584a4-1f2e-4539-b14f-d9b30ef3727b.png'
                   alt='Doctors'
                   className='h-12 w-auto'

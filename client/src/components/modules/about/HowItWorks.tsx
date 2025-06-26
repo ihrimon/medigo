@@ -56,19 +56,19 @@ export function HowItWorks() {
           {steps.map((step, index) => (
             <div key={index} className='relative'>
               <div className='relative'>
-                <div className='w-24 h-24 rounded-full border-2 border-teal-600 flex items-center justify-center mb-6 mx-auto'>
-                  <step.icon className='w-10 h-10 text-teal-600' />
-                  <div className='absolute -top-2 -right-2 w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white font-semibold'>
+                <div className='w-24 h-24 rounded-full border-2 border-primary/20 flex items-center justify-center mb-6 mx-auto'>
+                  <step.icon className='w-10 h-10 text-primary' />
+                  <div className='absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-semibold'>
                     {step.number}
                   </div>
                 </div>
               </div>
 
               <div className='text-center'>
-                <h3 className='text-xl font-semibold text-gray-900 mb-3'>
+                <h3 className='text-xl font-semibold text-heading mb-3'>
                   {step.title}
                 </h3>
-                <p className='text-gray-600'>{step.description}</p>
+                <p className='text-color'>{step.description}</p>
               </div>
             </div>
           ))}

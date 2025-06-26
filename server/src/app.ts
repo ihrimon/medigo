@@ -33,7 +33,7 @@ app.use('/api', router);
 app.get('/', (req: Request, res: Response) => {
   res.json({
     success: true,
-    message: 'Welcome to Cycle Planet Store 🚀',
+    message: 'Welcome to Meedigo Shop 🚀',
   });
 });
 

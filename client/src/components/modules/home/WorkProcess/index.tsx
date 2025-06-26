@@ -72,7 +72,8 @@ const WorkProcess = () => {
               <Image
                 src={step.image}
                 alt={step.title}
-                fill
+                height={500}
+                width={500}
                 className='object-cover'
               />
               <div

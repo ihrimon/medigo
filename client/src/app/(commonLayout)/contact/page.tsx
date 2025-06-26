@@ -1,12 +1,15 @@
-import ContactUs from '@/components/modules/contact/ContactUs';
-import FindWithMap from '@/components/modules/contact/FindWithMap';
-import React from 'react';
+import Appointment from '@/components/modules/contact/Appointment';
+import BranchLocations from '@/components/modules/contact/BranchLocations';
+import { EmergencyServices } from '@/components/modules/home/EmergencyServices';
+import PageBanner from '@/components/shared/PageBanner';
 
 const ContactPage = () => {
   return (
-    <div className='min-h-screen bg-blog-background'>
-      <ContactUs />
-      <FindWithMap />
+    <div className='bg-background'>
+      <PageBanner />
+      <BranchLocations />
+    <Appointment />
+      <EmergencyServices />
     </div>
   );
 };

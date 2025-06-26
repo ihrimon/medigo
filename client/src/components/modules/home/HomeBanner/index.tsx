@@ -28,17 +28,20 @@ const HomeBanner = () => {
             </div>
           </div>
           <div className='flex items-center gap-5 font-medium'>
-            <button className='cursor-pointer'>Login</button>
-            <button className='bg-primary px-5 py-2 rounded-md cursor-pointer text-white'>
-              Sign Up
-            </button>
+            <Link href={'/login'}>
+              <button className='cursor-pointer'>Login</button>
+            </Link>
+            <Link href={'/register'}>
+              {' '}
+              <button className='bg-primary px-5 py-2 rounded-md cursor-pointer text-white'>
+                Sign Up
+              </button>
+            </Link>
           </div>
         </div>
         {/* Banner Content */}
         <div className='mt-18 text-color'>
-          <CustomBadge
-            text='Smart Healthcare'
-          />
+          <CustomBadge text='Smart Healthcare' />
           <h1 className='text-[56px] font-extrabold leading-14 text-heading'>
             Smart <span className='text-[#01b0c3]'>MediGo Care</span> <br />{' '}
             Order Medicines And <br />
@@ -59,11 +62,16 @@ const HomeBanner = () => {
             <DoctorsBadge />
             <div className='flex items-center gap-10'>
               <p>
-                <span className='text-[#266388] text-3xl font-bold'>50+<br/></span>
+                <span className='text-[#266388] text-3xl font-bold'>
+                  50+
+                  <br />
+                </span>
                 Expert Doctors
               </p>
               <p>
-                <span className='text-[#266388] text-3xl font-bold'>20+ <br/></span>
+                <span className='text-[#266388] text-3xl font-bold'>
+                  20+ <br />
+                </span>
                 Job Vacancy
               </p>
             </div>

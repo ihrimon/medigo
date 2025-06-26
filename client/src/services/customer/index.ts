@@ -15,10 +15,18 @@ export const getAllCustomers = async (): Promise<any> => {
         },
       }
     );
+
+    if (!res.ok) {
+      const text = await res.text(); // fallback if not JSON
+      throw new Error(`API Error: ${res.status} - ${text}`);
+    }
+    
     const data = await res.json();
+    console.log(data, 'from services');
     return data;
   } catch (error: any) {
-    return Error(error.message);
+    console.error('getAllCustomers error:', error);
+    return { data: { data: [] } };
   }
 };
 

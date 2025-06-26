@@ -20,10 +20,7 @@ const Footer = () => {
           {/* Column 1 */}
           <div>
             <Logo />
-            <p className='text-sm mb-4'>
-              Lorem Ipsum is simply dummy text of the and typesetting industry.
-              Lorem Ipsum is dummy text of the printing.
-            </p>
+            <h4 className=' font-bold my-3 text-heading'>Address:</h4>
             <div className='flex items-start gap-2 text-sm mb-1'>
               <MapPin size={16} />
               Brooklyn, New York, United States

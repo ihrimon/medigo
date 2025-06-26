@@ -74,7 +74,7 @@ const services: Service[] = [
 
 const ServiceMarquee = () => {
   return (
-    <div className='w-full bg-green-100 py-4 overflow-hidden'>
+    <div className='w-full bg-secondary py-5 overflow-hidden'>
       <Marquee
         pauseOnHover={true}
         gradient={false}
@@ -103,7 +103,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ service }) => {
           className={cn(
             'p-3 rounded-full transition-all duration-1000',
             service.bgColor,
-            'group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500 group-hover:text-white'
+            'group-hover:bg-primary group-hover:text-white'
           )}
         >
           <div className='transition-all duration-500 group-hover:text-white group-hover:animate-spin group-hover:duration-[800ms]'>
@@ -113,10 +113,10 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ service }) => {
       </div>
 
       <div className='flex flex-col'>
-        <h3 className='font-medium text-sm md:text-base group-hover:underline transition-all duration-300 text-gray-700'>
+        <h3 className='font-medium text-sm md:text-base group-hover:underline transition-all duration-300 text-white'>
           {service.title}
         </h3>
-        <p className='text-xs md:text-sm text-gray-500'>
+        <p className='text-xs md:text-sm text-gray-400'>
           {service.description}
         </p>
       </div>

@@ -75,7 +75,7 @@ export default function RegisterForm() {
 
           <div className='text-center mb-6'>
             {/* <h1 className='text-2xl font-medium text-gray-800'>Welcome back</h1> */}
-            <p className='text-gray-600 mt-1'>Sign Up To Continue To MediGo.</p>
+            <p className='text-color mt-1'>Sign Up To Continue To MediGo.</p>
           </div>
 
           <Form {...form}>
@@ -134,7 +134,7 @@ export default function RegisterForm() {
                           {showPassword ? (
                             <EyeOff className='h-4 w-4 text-gray-500' />
                           ) : (
-                            <Eye className='h-4 w-4 text-gray-500' />
+                            <Eye className='h-4 w-4 text-color' />
                           )}
                         </button>
                       </div>
@@ -164,9 +164,9 @@ export default function RegisterForm() {
                           className='absolute inset-y-0 right-0 flex items-center pr-3'
                         >
                           {showPassword ? (
-                            <EyeOff className='h-4 w-4 text-gray-500' />
+                            <EyeOff className='h-4 w-4 text-color' />
                           ) : (
-                            <Eye className='h-4 w-4 text-gray-500' />
+                            <Eye className='h-4 w-4 text-color' />
                           )}
                         </button>
                       </div>
@@ -210,7 +210,7 @@ export default function RegisterForm() {
               <Button
                 disabled={password !== passwordConfirm || !acceptTerms}
                 type='submit'
-                className='w-full bg-teal-600 hover:bg-teal-700 text-white'
+                className='w-full bg-primary hover:bg-secondary text-white'
               >
                 {isSubmitting ? 'Registering....' : 'Register'}
               </Button>
@@ -218,11 +218,11 @@ export default function RegisterForm() {
           </Form>
 
           <div className='text-center mt-6'>
-            <p className='text-sm text-gray-600'>
+            <p className='text-sm text-color'>
               Already have an account?{' '}
               <Link
                 href='/login'
-                className='text-teal-600 hover:underline font-medium'
+                className='text-primary hover:underline font-medium'
               >
                 Login here
               </Link>

@@ -22,7 +22,8 @@ const TopCategories = async () => {
                   <div className='absolute inset-0 bg-white opacity-100 group-hover:opacity-0 transition-opacity duration-200 z-10'></div>
                   <Image
                     src={category.image}
-                    fill
+                    width={500}
+                    height={500}
                     alt='category image'
                     className='absolute inset-0 object-contain object-center p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0'
                   />

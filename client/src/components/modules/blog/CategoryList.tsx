@@ -12,7 +12,7 @@ interface CategoryListProps {
 
 const CategoryList = ({ categories }: CategoryListProps) => {
   return (
-    <div className='border rounded-xl p-5 shadow-sm'>
+    <div className='border rounded-xl p-5'>
       <h3 className='text-lg font-semibold mb-4'>Category</h3>
       <ul className='space-y-2'>
         {categories.map((category, index) => (

@@ -1,34 +1,46 @@
-// import CustomerList from '@/components/modules/admin/customers';
-// import { getAllCustomers } from '@/services/customer'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 
-// const AdminCustomerPage = async () => {
-//   const {data: customersData} = await getAllCustomers();
-//   const customers = customersData?.data;
-//   console.log(customers);
-
-//   return (
-//     <div className='max-w-7xl mx-auto'>
-//       <h3 className='text-2xl mb-6'>Customers</h3>
-//       {customers?.length > 0 ? (
-//         <CustomerList customers={customers} />
-//       ) : (
-//         <div className='text-center text-3xl font-bold text-red-500'>
-//           Customers Are Not Available
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default AdminCustomerPage
-
-
-import React from 'react'
+import { useEffect, useState } from 'react';
+import CustomerList from '@/components/modules/admin/customers';
+import { getAllCustomers } from '@/services/customer';
 
 const AdminCustomerPage = () => {
-  return (
-    <div>AdminCustomerPage</div>
-  )
-}
+  const [customers, setCustomers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-export default AdminCustomerPage
+  useEffect(() => {
+    const fetchCustomers = async () => {
+      try {
+        const response = await getAllCustomers();
+        setCustomers(response.data ?? []);
+      } catch (err: any) {
+        setError('Failed to load customers');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCustomers();
+  }, []);
+
+  return (
+    <div className='max-w-7xl mx-auto py-10'>
+      <h3 className='text-2xl font-bold mb-6'>Customers</h3>
+
+      {loading ? (
+        <p className='text-gray-500 text-center'>Loading...</p>
+      ) : error ? (
+        <p className='text-red-500 text-center'>{error}</p>
+      ) : customers.length > 0 ? (
+        <CustomerList customers={customers} />
+      ) : (
+        <p className='text-gray-400 text-center'>No customers found.</p>
+      )}
+    </div>
+  );
+};
+
+export default AdminCustomerPage;
