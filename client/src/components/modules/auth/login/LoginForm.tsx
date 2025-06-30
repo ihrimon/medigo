@@ -17,8 +17,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import authImage from '../../../../app/assets/auth.png';
-import Image from 'next/image';
 import { loginSchema } from '@/schemas';
 import { loginDefaultValues } from '@/constants';
 import { loginUser } from '@/services/auth';
@@ -143,24 +141,12 @@ const {
             <p className='text-sm text-color'>
               Don&apos;t have an account?{' '}
               <Link
-                href='/register'
+                href='/auth/register'
                 className='text-primary hover:underline font-medium'
               >
                 Register here
               </Link>
             </p>
-          </div>
-        </div>
-
-        <div className='hidden md:block p-8'>
-          <div className='h-full flex items-center justify-center'>
-            <Image
-              src={authImage}
-              alt='Register image'
-              width={500}
-              height={500}
-              className='max-h-full object-contain'
-            />
           </div>
         </div>
       </div>

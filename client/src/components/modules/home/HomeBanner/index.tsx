@@ -5,7 +5,8 @@ import styles from './HeroSection.module.css';
 import { navLinks } from '@/constants/navbar';
 import Link from 'next/link';
 import CustomBadge from '@/components/ui/core/CustomBadge';
-import { DoctorsBadge, RightArrow } from '@/constants/assets';
+import { RightArrow } from '@/constants/assets';
+import DoctorSearch from './DoctorSearch';
 
 const HomeBanner = () => {
   return (
@@ -28,12 +29,12 @@ const HomeBanner = () => {
             </div>
           </div>
           <div className='flex items-center gap-5 font-medium'>
-            <Link href={'/login'}>
+            <Link href={'/auth/login'}>
               <button className='cursor-pointer'>Login</button>
             </Link>
-            <Link href={'/register'}>
+            <Link href={'/auth/register'}>
               {' '}
-              <button className='bg-primary px-5 py-2 rounded-md cursor-pointer text-white'>
+              <button className='bg-white hover:bg-secondary transition-colors px-4 py-[6px] rounded-md cursor-pointer text-primary hover:text-white'>
                 Sign Up
               </button>
             </Link>
@@ -54,27 +55,12 @@ const HomeBanner = () => {
           </p>
           {/* Book an appointment button */}
           <div>
-            <button className='bg-[#266388] px-5 py-3 text-white rounded-md flex items-center gap-3 cursor-pointer'>
+            <button className='bg-secondary hover:bg-primary transition-colors px-5 py-[7px] text-white rounded-md flex items-center gap-3 cursor-pointer'>
               Book an Appointment <RightArrow />
             </button>
           </div>
           <div className='mt-10 flex items-center gap-10'>
-            <DoctorsBadge />
-            <div className='flex items-center gap-10'>
-              <p>
-                <span className='text-[#266388] text-3xl font-bold'>
-                  50+
-                  <br />
-                </span>
-                Expert Doctors
-              </p>
-              <p>
-                <span className='text-[#266388] text-3xl font-bold'>
-                  20+ <br />
-                </span>
-                Job Vacancy
-              </p>
-            </div>
+            <DoctorSearch />
           </div>
         </div>
       </div>

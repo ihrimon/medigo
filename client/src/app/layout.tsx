@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${rubik.variable} antialiased`}>
         <Providers>
-          <Toaster richColors position='bottom-center' />
+          <Toaster position='top-right' richColors />
           {children}
         </Providers>
       </body>

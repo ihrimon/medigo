@@ -5,7 +5,10 @@ import { Suspense } from 'react';
 
 const LoginPage = () => {
   return (
-    <div className='h-screen w-screen bg-[#e5f0f0] flex justify-center items-center'>
+    <div
+      className='min-h-screen flex items-center justify-center bg-cover bg-center px-4 py-8'
+      style={{ backgroundImage: "url('/assets/auth-bg.png')" }}
+    >
       <Suspense fallback={<div>Loading...</div>}>
         <LoginForm />
       </Suspense>

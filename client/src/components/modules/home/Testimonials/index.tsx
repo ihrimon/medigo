@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight, PlayCircle } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 import CustomBadge from '@/components/ui/core/CustomBadge';
-import { Apostrophe } from '@/constants/assets';
+import { Apostrophe, DoctorsBadge } from '@/constants/assets';
 
 const testimonials = [
   {
@@ -180,37 +180,8 @@ export const Testimonials = () => {
 
                 {/* User Avatars */}
                 <div className='flex -space-x-2'>
-                  <Image
-                    src='https://randomuser.me/api/portraits/men/32.jpg'
-                    className='w-8 h-8 rounded-full border-2 border-white'
-                    alt='patient'
-                    width={50}
-                    height={50}
-                  />
-                  <Image
-                    src='https://randomuser.me/api/portraits/women/44.jpg'
-                    className='w-8 h-8 rounded-full border-2 border-white'
-                    alt='patient'
-                    width={50}
-                    height={50}
-                  />
-                  <Image
-                    src='https://randomuser.me/api/portraits/men/65.jpg'
-                    className='w-8 h-8 rounded-full border-2 border-white'
-                    alt='patient'
-                    width={50}
-                    height={50}
-                  />
-                  <Image
-                    src='https://randomuser.me/api/portraits/men/66.jpg'
-                    className='w-8 h-8 rounded-full border-2 border-white'
-                    alt='patient'
-                    width={50}
-                    height={50}
-                  />
-                  <div className='w-8 h-8 rounded-full bg-primary text-white text-xs font-semibold flex items-center justify-center'>
-                    +29K
-                  </div>
+                  
+                  <DoctorsBadge />
                 </div>
               </div>
             </div>

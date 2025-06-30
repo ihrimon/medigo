@@ -117,7 +117,7 @@ export const TopServiceCategory = () => {
           <div
             key={index}
             className={clsx(
-              'relative rounded-2xl p-6 bg-white overflow-hidden transition-all group hover:bg-primary hover:text-white'
+              'relative rounded-2xl p-6 bg-white/40 border-3 border-white overflow-hidden transition-all group hover:bg-primary hover:text-white hover:shadow-lg'
             )}
           >
             {/* Background Icon - Top Right */}

@@ -74,7 +74,7 @@ const services: Service[] = [
 
 const ServiceMarquee = () => {
   return (
-    <div className='w-full bg-secondary py-5 overflow-hidden'>
+    <div className='w-full bg-secondary py-6 overflow-hidden'>
       <Marquee
         pauseOnHover={true}
         gradient={false}

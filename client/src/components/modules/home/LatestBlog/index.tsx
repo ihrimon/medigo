@@ -16,23 +16,23 @@ interface Article {
 const articles: Article[] = [
   {
     id: 1,
-    title: 'Top 5 groundbreaking medical advancements transforming...',
+    title: 'Top 5 groundbreaking medical advancements in Cancer Care',
     excerpt:
-      'Smoke from regional wildfires endangers health even for those not directly in the path of fire. As wildfires...',
-    category: 'Exercise & Fitness',
+      'Recent innovations in cancer treatments, including immunotherapy and personalized medicine, are improving patient outcomes worldwide.',
+    category: 'Cancer Care',
     date: 'February 24, 2025',
     author: 'Admin',
     image:
-      'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?q=80&w=2140&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://omshreehospital.com/wp-content/uploads/2024/10/Cancer-Care.png',
     readMoreLink: '#',
   },
   {
     id: 2,
     title:
-      'Mental health: Breaking the stigma and promoting emotional well-being',
+      'Antibiotics: Fighting infections and antibiotic resistance challenges',
     excerpt:
-      'Smoke from regional wildfires endangers health even for those not directly in the path of fire. As wildfires...',
-    category: 'Neurologist',
+      'Understanding how antibiotics work and the global efforts to combat antibiotic resistance for better healthcare.',
+    category: 'Antibiotic',
     date: 'February 24, 2025',
     author: 'Admin',
     image:
@@ -41,17 +41,18 @@ const articles: Article[] = [
   },
   {
     id: 3,
-    title: 'Natural ways to strengthen your immune system for optimal health',
+    title: 'Natural strategies to manage Diabetes and improve health',
     excerpt:
-      'Smoke from regional wildfires endangers health even for those not directly in the path of fire. As wildfires...',
-    category: 'Nutrition',
+      'Effective lifestyle changes, diet tips, and medical advancements to help control diabetes and enhance quality of life.',
+    category: 'Diabetes',
     date: 'February 24, 2025',
     author: 'Admin',
     image:
-      'https://images.unsplash.com/photo-1631980839320-77eed020776c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://hospitalsmagazine.com/wp-content/uploads/2024/03/diabetes-.jpg',
     readMoreLink: '#',
   },
 ];
+
 
 const LatestBlog = () => {
   return (
@@ -70,13 +71,13 @@ const LatestBlog = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
         {articles.map((article) => (
           <div key={article.id} className=''>
-            <div className='aspect-video overflow-hidden'>
+            <div className='aspect-video overflow-hidden rounded-xl group'>
               <Image
                 src={article.image}
                 alt={article.title}
                 width={500}
                 height={500}
-                className='w-full h-full object-cover rounded-xl'
+                className='w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-[3deg]'
               />
             </div>
 

@@ -2,7 +2,10 @@ import RegisterForm from '@/components/modules/auth/register/RegisterForm';
 
 const RegisterPage = () => {
   return (
-    <div className='bg-[#e5f0f0] h-screen w-screen flex justify-center items-center'>
+    <div
+      className='min-h-screen bg-cover bg-center flex items-center justify-center'
+      style={{ backgroundImage: "url('/assets/auth-bg.png')" }}
+    >
       <RegisterForm />
     </div>
   );

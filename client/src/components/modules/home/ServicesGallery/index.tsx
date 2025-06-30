@@ -21,19 +21,19 @@ const popularCategories = [
   {
     name: 'Pain Relief',
     image:
-      'https://plus.unsplash.com/premium_photo-1661779402574-918b4b17627d?w=500&auto=format&fit=crop&q=60',
+      'https://precisionspinecare.com/wp-content/uploads/2023/07/Precision-Jul-6.png',
     icon: 'https://res.cloudinary.com/do6tvtff8/image/upload/v1743828679/pain-relief_wu0v1b.png',
   },
   {
     name: 'Diabetes',
     image:
-      'https://plus.unsplash.com/premium_photo-1679392532113-bee46deab9fa?w=500&auto=format&fit=crop&q=60',
+      'https://diabetes-m.com/wp-content/uploads/2023/10/regular-diabetes-check-ups.jpg',
     icon: 'https://res.cloudinary.com/do6tvtff8/image/upload/v1743828678/diabetics_fmtv8t.png',
   },
   {
     name: 'Digestive',
     image:
-      'https://plus.unsplash.com/premium_photo-1702598506785-f3083090f8e8?w=500&auto=format&fit=crop&q=60',
+      'https://www.texashealth.org/-/media/Project/THR/shared/Header-Images/Header-Doctor-Patient-Stomach-Pain.jpg?h=640&iar=0&w=1920&hash=2FA3D3DD4F931F7E3506C5E555779669',
     icon: 'https://res.cloudinary.com/do6tvtff8/image/upload/v1743828678/digestive_bdj9pj.png',
   },
 ];
@@ -78,8 +78,13 @@ export default function PopularServiceCategories() {
                     className='object-cover w-full h-full'
                   />
 
-                  {/* Overlay */}
-                  <div className='absolute inset-0  group-hover:bg-primary/50 transition-all duration-600 z-10' />
+                  {/* Overlay Animation Layer */}
+                  <div className='absolute inset-0 z-10 pointer-events-none'>
+                    {/* Top to Bottom Overlay */}
+                    <div className='absolute inset-0 bg-secondary/70 translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-1000 ease-in-out' />
+                    {/* Bottom to Top Overlay */}
+                    <div className='absolute inset-0 bg-primary/40 translate-y-full group-hover:translate-y-0 transition-transform duration-1000 delay-100 ease-in-out' />
+                  </div>
 
                   {/* Hover Arrow Icon */}
                   <div className='absolute inset-0 flex items-center justify-center z-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
@@ -91,13 +96,13 @@ export default function PopularServiceCategories() {
 
                 {/* Icon - Positioned Between Image and Title */}
                 <div className='relative z-50 -mt-7 flex justify-center'>
-                  <div className='icon-spin w-16 h-16 rounded-full bg-white border-[3px] border-primary flex items-center justify-center shadow-md'>
+                  <div className='w-16 h-16 rounded-full bg-white border-[3px] border-primary flex items-center justify-center shadow-md'>
                     <Image
                       src={category.icon}
                       alt='icon'
                       width={28}
                       height={28}
-                      className='w-7 h-7'
+                      className='w-7 h-7 transition-transform duration-500 hover:rotate-20 hover:scale-120'
                     />
                   </div>
                 </div>

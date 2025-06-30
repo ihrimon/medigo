@@ -160,3 +160,9 @@ body {
   transform: rotateY(360deg);
   transform-origin: center;
 }
+
+
+::selection {
+  background-color: #01b0c3; 
+  color: white;
+}

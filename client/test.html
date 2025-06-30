@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Order Details</title>
+
+    <!-- ✅ Google Font link -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* <====== Order Table Styles ======> */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+      }
+
+      body {
+        font-family: 'Noto Sans Bengali', sans-serif;
+        background: #f9f9f9;
+        padding: 20px;
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .print-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+      }
+
+      .print-button button {
+        padding: 8px 16px;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #3f47b9d3;
+        border: none;
+        border-radius: 5px;
+        color: white;
+      }
+
+      .print-button button:hover {
+        background-color: #3f47b9;
+      }
+
+      .flex-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+        margin-bottom: 20px;
+      }
+
+      .section {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 32%;
+        border-radius: 5px;
+        font-size: 14px;
+        word-break: break-word;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        margin-top: 10px;
+        table-layout: fixed;
+      }
+
+      th,
+      td {
+        border: 1px solid #aaa;
+        padding: 6px 8px;
+        text-align: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+      }
+
+      .summary td {
+        font-weight: bold;
+      }
+
+      .right-align {
+        text-align: right;
+      }
+
+      #pdf-content {
+        background: white;
+        padding: 20px 20px 40px 20px;
+        width: 1000px;
+        margin: auto;
+        position: relative;
+      }
+
+      /* <====== PDF Print Styles ======> */
+      @media print {
+        @page {
+          size: A4 landscape;
+          margin: 20mm;
+        }
+
+        body {
+          background: white;
+          padding: 0;
+          margin: 0;
+          font-size: 12px;
+          line-height: 1.15;
+        }
+
+        .print-button {
+          display: none;
+        }
+
+        #pdf-content {
+          width: 100%;
+          max-width: 100%;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+        }
+
+        #pdf-content > .copy {
+          flex: 1 1 0;
+          padding: 10px;
+          background: white;
+        }
+
+        .flex-container {
+          margin: 10px 0;
+          gap: 5px;
+        }
+
+        .section {
+          width: 32%;
+          padding: 8px 6px;
+          font-size: 12px;
+        }
+
+        table {
+          font-size: 11px;
+        }
+
+        th,
+        td {
+          padding: 4px 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pdf-content">
+      <div class="print-button">
+        <button onclick="printPDF()">🖨️ প্রিন্ট করুন</button>
+      </div>
+
+      <div class="copy">
+        <div class="flex-container">
+          <div class="section">
+            <strong>অর্ডার তথ্যঃ</strong><br />
+
+            <!-- Dynamic content goes here -->
+            ইস্যু তারিখ: ৩০ জুন, ২০২৫<br />
+            অর্ডার নং: RSO-551667-00007564
+          </div>
+          <div class="section">
+            <strong>ডিস্ট্রিবিউটর তথ্যঃ</strong><br />
+            -
+          </div>
+          <div class="section">
+            <strong>ক্রেতার তথ্যঃ</strong><br />
+            <!-- Dynamic content goes here -->
+            তানজিহদ স্টোর - OL064972<br />
+            eraasar<br />
+            reearwear
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>পণ্যের কোড</th>
+              <th>পণ্যের নাম</th>
+              <th>কার্টুন সাইজ (পিস)</th>
+              <th>পরিমাণ/পিস</th>
+              <th>মূল্য/কার্টুন</th>
+              <th>পরিমাণ/কার্টুন</th>
+              <th>মূল্য</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <!-- Dynamic content goes here -->
+              <td>১</td>
+              <td>৮৬৮০৪</td>
+              <td>Dudh Malai</td>
+              <td>৩২</td>
+              <td>০</td>
+              <td>৫৪৪.০০</td>
+              <td>৪</td>
+              <td>২১৭৬.০০</td>
+            </tr>
+            <tr>
+              <!-- Dynamic content goes here -->
+              <td>২</td>
+              <td>৮৬৮৩৪</td>
+              <td>Chocolate Fudge - 1 Liter</td>
+              <td>১</td>
+              <td>০</td>
+              <td>৪১৬.০০</td>
+              <td>৪</td>
+              <td>১৬৬৪.০০</td>
+            </tr>
+            <tr class="summary">
+              <td colspan="7" class="right-align">সর্বমোট</td>
+              <!-- Dynamic content goes here -->
+              <td>৩৮৪০.০০</td>
+            </tr>
+            <tr class="summary">
+              <td colspan="7" class="right-align">ডিসকাউন্ট</td>
+              <!-- Dynamic content goes here -->
+              <td>২২০.০০</td>
+            </tr>
+            <tr class="summary">
+              <td colspan="7" class="right-align">বিশেষ ডিসকাউন্ট</td>
+              <!-- Dynamic content goes here -->
+              <td>০.০০</td>
+            </tr>
+            <tr class="summary">
+              <td colspan="7" class="right-align">মোট টাকা</td>
+              <!-- Dynamic content goes here -->
+              <td>৩৬২০.০০</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      // Function calling while print the pdf file
+      function printPDF() {
+        const pdfContent = document.getElementById('pdf-content');
+        if (!pdfContent.querySelectorAll('.copy')[1]) {
+          const clone = pdfContent.querySelector('.copy').cloneNode(true);
+          pdfContent.appendChild(clone);
+        }
+        window.print();
+        const copies = pdfContent.querySelectorAll('.copy');
+        if (copies.length > 1) {
+          copies[1].remove();
+        }
+      }
+    </script>
+  </body>
+</html>

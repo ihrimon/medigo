@@ -35,8 +35,8 @@ export const DoctorsBadge = () => {
       <Image
         src={'/assets/doctors-badge.png'}
         alt='Doctors'
-        height={200}
-        width={200}
+        height={150}
+        width={150}
       />
     </div>
   );
